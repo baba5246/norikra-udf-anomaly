@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "norikra-udf-anomaly"
-  spec.version       = "0.0.2"
+  spec.version       = "0.0.3"
   spec.authors       = ["baba5246"]
   spec.email         = ["baba_writer@yahoo.co.jp"]
   spec.summary       = %q{Norikra UDF anomaly()}
