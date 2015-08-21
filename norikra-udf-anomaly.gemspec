@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["baba_writer@yahoo.co.jp"]
   spec.summary       = %q{Norikra UDF anomaly()}
   spec.description   = %q{This plugin adds a function named anomaly, which calculates anomaly scores for specified fields}
-  spec.homepage      = "https://github.com/tagomoris/norikra-udf-anomaly"
-  spec.license       = "MIT"
+  spec.homepage      = "https://github.com/baba5246/norikra-udf-anomaly"
+  spec.license       = "GPLv2"
   spec.platform      = "java"
 
   spec.files         = `git ls-files`.split($/)
