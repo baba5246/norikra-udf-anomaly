@@ -62,19 +62,34 @@ public class Anomaly implements AggregationMethod {
     if (counts.length == 0)
       return null;
 
-    Integer mean = mean(counts);
-    return mean;
+    Integer score = cumulateDeviation(counts);
+    return score;
   }
 
   public void clear() {
     countList = null;
   }
 
-  public Integer mean(Integer[] m) {
+  public double mean(Integer[] m) {
     Integer sum = 0;
     for (int i = 0; i < m.length; i++) {
         sum += m[i];
     }
-    return sum / m.length;
+    return sum.doubleValue() / m.length;
+  }
+
+  public Integer cumulateDeviation(Integer[] counts) {
+    double mean = mean(counts);
+    double cumulativeSum = 0;
+    double maxSum = cumulativeSum;
+
+    for (int i = 0; i < counts.length; i++) {
+      double dev = counts[i].doubleValue() - mean;
+      cumulativeSum += dev;
+      if (i == 0) maxSum = cumulativeSum;
+      else maxSum = Math.max(maxSum, cumulativeSum);
+    }
+
+    return new Integer((int) maxSum);
   }
 }

@@ -16,13 +16,13 @@ describe Norikra::UDF::Anomaly do
     expect(f.getValueType).to eql(java.lang.Integer.java_class)
   end
 
-  it 'returns 1 value as mean' do
+  it 'returns 1 value as cumulativeDeviation' do
     (0...100).each do |i|
       f._call(:enter, i.to_java())
     end
 
     r = f.getValue
-    expect(r).to eql(49)
+    expect(r).to eql(0)
 
     (0...100).each do |i|
       f._call(:leave, i.to_java())
